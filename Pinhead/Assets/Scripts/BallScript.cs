@@ -12,7 +12,7 @@ public class BallScript : MonoBehaviour {
     public Text loseText;
     public Text scoreText;
     private int score;
-    Vector3 originalPosition;
+    Vector3 originalPosition;           
     //private Vector3 startingPosition = rb.Transform.localPosition();
     // Use this for initialization
     void Start () {
