@@ -13,6 +13,7 @@ public class BallScript : MonoBehaviour {
     public Text scoreText;
     private int score;
     Vector3 originalPosition;
+    public GameObject soundBox;
     //private Vector3 startingPosition = rb.Transform.localPosition();
     // Use this for initialization
     void Start () {
@@ -26,7 +27,9 @@ public class BallScript : MonoBehaviour {
             new Vector3(rb.gameObject.transform.position.x, 
                         rb.gameObject.transform.position.y, 
                         rb.gameObject.transform.position.z);
-        
+
+        soundBox = GameObject.FindWithTag("SoundBox");
+
     }
 	
 	// Update is called once per frame
@@ -43,10 +46,12 @@ public class BallScript : MonoBehaviour {
             if (count <= 0)
             {
                 loseText.text = "Game Over";
+                soundBox.GetComponent<SoundBoxScript>().playSounds("loss");
             }
             else
             {
                 transform.position = originalPosition;
+                soundBox.GetComponent<SoundBoxScript>().playSounds("plunger2");
             }
         }
     }
@@ -57,6 +62,11 @@ public class BallScript : MonoBehaviour {
         {
             score += 100;
             scoreText.text = "Score: " + score.ToString();
+            soundBox.GetComponent<SoundBoxScript>().playSounds("bumperAndDing");
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            soundBox.GetComponent<SoundBoxScript>().playSounds("hitWall");
         }
     }
 

@@ -20,6 +20,7 @@ public class SoundBoxScript : MonoBehaviour {
     void Awake()
     {
         source = GetComponent<AudioSource>();
+        playSounds("plunger2");
     }
     // Use this for initialization
     void Start () {
@@ -28,52 +29,56 @@ public class SoundBoxScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Q)){
-            playSounds("bowling");
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            playSounds("bowlingCompressed");
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            playSounds("bumper");
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            playSounds("bumperAndDing");
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            playSounds("hitWall");
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
+        /*        if (Input.GetKeyDown(KeyCode.Q)){
+                    playSounds("bowling");
+                }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    playSounds("bowlingCompressed");
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    playSounds("bumper");
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    playSounds("bumperAndDing");
+                }
+                if (Input.GetKeyDown(KeyCode.T))
+                {
+                    playSounds("hitWall");
+                }
+                if (Input.GetKeyDown(KeyCode.Y))
+                {
+                    playSounds("paddle");
+                }
+                if (Input.GetKeyDown(KeyCode.U))
+                {
+                    playSounds("paddle2");
+                }
+                if (Input.GetKeyDown(KeyCode.I))
+                {
+                    playSounds("ding");
+                }
+                if (Input.GetKeyDown(KeyCode.O))
+                {
+                    playSounds("loss");
+                }
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    playSounds("plunger");
+                }
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    playSounds("plunger2");
+                }*/
+        if (Input.GetKeyDown(KeyCode.C)|| Input.GetKeyDown(KeyCode.M)|| Input.GetKeyDown(KeyCode.Alpha1)|| Input.GetKeyDown(KeyCode.Equals))
         {
             playSounds("paddle");
         }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            playSounds("paddle2");
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            playSounds("ding");
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            playSounds("loss");
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            playSounds("plunger");
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            playSounds("plunger2");
-        }
 
     }
-    void playSounds(string soundChoice){
+    public void playSounds(string soundChoice){
         switch (soundChoice){
             case "bowling":
                 source.PlayOneShot(bowling, 1.0F);

@@ -10,12 +10,12 @@ public class flipperscript : MonoBehaviour {
     HingeJoint hinge;
     public string inputName;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         hinge = GetComponent<HingeJoint>();
         hinge.useSpring = true;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -27,6 +27,7 @@ public class flipperscript : MonoBehaviour {
 		if(Input.GetAxis(inputName) == 1)
         {
             spring.targetPosition = pressedPosition;
+
         }
         else
         {
